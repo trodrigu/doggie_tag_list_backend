@@ -28,4 +28,13 @@ defmodule DoggieTagCxWeb.DoggieTagCxControllerTest do
       assert order.wood == "acacia"
     end
   end
+
+  describe "get orders" do
+    test "renders list of orders", %{conn: conn} do
+      Order.create(@create_attrs)
+      conn = get(conn, order_path(conn, :index))
+      orders = json_response(conn, 200)
+      assert Enum.count(orders) == 1
+    end
+  end
 end

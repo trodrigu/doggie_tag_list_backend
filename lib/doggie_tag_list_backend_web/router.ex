@@ -9,6 +9,7 @@ defmodule DoggieTagCxWeb.Router do
     pipe_through(:api)
 
     post("/orders", OrderController, :create)
+    get("/orders", OrderController, :index)
     post("/token", TokenController, :create)
     post("/token/refresh", TokenController, :refresh)
   end
