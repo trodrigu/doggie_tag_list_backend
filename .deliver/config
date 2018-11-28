@@ -1,4 +1,4 @@
-APP="doggie_tag_list_backed"
+APP="doggie_tag_list_backend"
 
 BUILD_HOST="hobosd.com"
 BUILD_USER="trod"
