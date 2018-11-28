@@ -9,3 +9,13 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias DoggieTagCx.User
+alias DoggieTagCx.Repo
+
+if Mix.env() == :dev do
+  changes = %{name: "some user", email: "test@test.com", password: "supersecret"}
+
+  %User{}
+  |> User.registration_changeset(changes)
+  |> Repo.insert!()
+end
