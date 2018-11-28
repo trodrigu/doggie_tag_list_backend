@@ -8,7 +8,7 @@ Path.join(["rel", "plugins", "*.exs"])
 
 use Mix.Releases.Config,
     # This sets the default release built by `mix release`
-    default_release: :doggie_tag_list_backend,
+    default_release: :default,
     # This sets the default environment used by `mix release`
     default_environment: Mix.env()
 
@@ -30,13 +30,13 @@ environment :dev do
   # dev mode.
   set dev_mode: true
   set include_erts: false
-  set cookie: :"%[y,OKkzbaV9mtjqHs$jqBrkr}~2h2KPLBEGsMfzHO*X`o2E>@u;V0mi$;rm~v<S"
+  set cookie: :"n<ue@;}9b]wDF[8|YS%*s>BIlDg_>!~d|4$DZ;fUq;xSSV8>*S4PQ|k9&uE2w<Rs"
 end
 
 environment :prod do
   set include_erts: true
   set include_src: false
-  set cookie: :"hG<W^;.<?Et>Eo&a:3=5Qv*4]lci{SyU`y!fby,U[,|=_FOD%h$M<UOubcHT>qjA"
+  set cookie: :"&>7s56V0y]CNBNiG/ZQ>]J<(&bv|Eo9)FV*<!n)/ovl!@rDBEE;Jv1cCpyKFhlW<"
 end
 
 # You may define one or more releases in this file.
