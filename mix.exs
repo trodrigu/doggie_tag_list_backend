@@ -4,7 +4,7 @@ defmodule DoggieTagCx.Mixfile do
   def project do
     [
       app: :doggie_tag_list_backend,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -20,7 +20,7 @@ defmodule DoggieTagCx.Mixfile do
   def application do
     [
       mod: {DoggieTagCx.Application, []},
-      extra_applications: [:logger, :runtime_tools, :comeonin, :guardian]
+      extra_applications: [:logger, :runtime_tools, :comeonin, :guardian, :edeliver]
     ]
   end
 
