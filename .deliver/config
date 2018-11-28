@@ -1,0 +1,18 @@
+APP="doggie_tag_list_backed"
+
+BUILD_HOST="hobosd.com"
+BUILD_USER="trod"
+BUILD_AT="/home/trod/app_build"
+
+PRODUCTION_HOSTS="hobosd.com" 
+PRODUCTION_USER="trod" 
+DELIVER_TO="/home/trod/app_release" 
+
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="/home/trod/app_config/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}
