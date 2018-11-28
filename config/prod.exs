@@ -15,8 +15,11 @@ use Mix.Config
 # which you typically run after static files are built.
 config :doggie_tag_list_backend, DoggieTagCxWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "hobosd.com", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  http: [port: 4000],
+  server: true,
+  code_reloader: false
 
 # Do not print debug messages in production
 config :logger, level: :info
