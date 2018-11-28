@@ -34,6 +34,7 @@ defmodule DoggieTagCxWeb.DoggieTagCxControllerTest do
       Order.create(@create_attrs)
       conn = get(conn, order_path(conn, :index))
       orders = json_response(conn, 200)
+      IO.inspect orders
       assert Enum.count(orders) == 1
     end
   end

@@ -18,10 +18,10 @@ defmodule DoggieTagCxWeb.OrderView do
       %{
         contact_number: order.contact_number,
         design: order.design,
-        dog_name: order.design,
-        phone_number: order.design,
-        shipping_address: order.design,
-        size: order.design,
+        dog_name: order.dog_name,
+        phone_number: order.phone_number,
+        shipping_address: order.shipping_address,
+        size: order.size,
         wood: order.wood
       }
     end)
