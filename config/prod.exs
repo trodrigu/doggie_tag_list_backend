@@ -16,7 +16,6 @@ use Mix.Config
 config :doggie_tag_list_backend, DoggieTagCxWeb.Endpoint,
   load_from_system_env: true,
   url: [host: "hobosd.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json",
   http: [port: 4000],
   server: true,
   code_reloader: false
