@@ -26,7 +26,7 @@ config :logger, :console,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
 
-config :doggie_tag_list_backend, DoggieTagCx.Guardian,
+config :doggie_tag_list_backend, DoggieTagCx.UserManager.Guardian,
   issuer: "doggie_tag_list_backend",
   secret_key: "b++QhTYXuwmVE/xyMjVr5c13Tj0QEvFjOztkAICpldrgyd0KZQ3CssxBGsIyS6l3",
   serializer: DoggieTagCx.GuardianSerializer

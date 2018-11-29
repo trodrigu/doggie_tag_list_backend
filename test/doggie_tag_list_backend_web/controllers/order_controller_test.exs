@@ -1,6 +1,8 @@
 defmodule DoggieTagCxWeb.DoggieTagCxControllerTest do
   use DoggieTagCxWeb.ConnCase
+  import DoggieTagCx.UserManager.Guardian
 
+  alias DoggieTagCx.User
   alias DoggieTagCx.Order
   alias DoggieTagCx.Repo
   import Ecto.Query
@@ -30,11 +32,34 @@ defmodule DoggieTagCxWeb.DoggieTagCxControllerTest do
   end
 
   describe "get orders" do
-    test "renders list of orders", %{conn: conn} do
+    test "return 401 when not auth'd", %{conn: conn} do
       Order.create(@create_attrs)
-      conn = get(conn, order_path(conn, :index))
+
+      conn =
+        conn
+        |> get(order_path(conn, :index))
+
+      assert response(conn, 401) == "unauthenticated"
+    end
+
+    test "renders list of orders with auth", %{conn: conn} do
+      changes = %{name: "hello", email: "hello@test.com", password: "asdfjkl;"}
+
+      user =
+        %User{}
+        |> User.registration_changeset(changes)
+        |> Repo.insert!()
+
+      {:ok, token, _} = encode_and_sign(user, %{}, token_type: :access)
+
+      Order.create(@create_attrs)
+
+      conn =
+        conn
+        |> put_req_header("authorization", "Bearer: " <> token)
+        |> get(order_path(conn, :index))
+
       orders = json_response(conn, 200)
-      IO.inspect orders
       assert Enum.count(orders) == 1
     end
   end
