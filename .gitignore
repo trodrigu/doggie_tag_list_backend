@@ -14,4 +14,6 @@ erl_crash.dump
 # secrets files as long as you replace their contents by environment
 # variables.
 /config/*.secret.exs
-.elixir_ls.deliver/releases/
+.elixir_ls/
+.deliver/releases/
+.DS_Store
